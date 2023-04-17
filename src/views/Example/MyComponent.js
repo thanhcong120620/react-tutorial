@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import ChildComponent from "./ChildComponent";
 
 /**
  * <> </> Fragement kiểu mới
@@ -7,7 +8,12 @@ import React, { Fragment } from "react";
 class MyComponent extends React.Component {
   state = {
     firstName: "",
-    lastName: "",
+    age: "",
+    arrJob: [
+        {id: "1", jobTitle: "Developers", salary: "500$"},
+        {id: "2", jobTitle: "Testers", salary: "400$"},
+        {id: "3", jobTitle: "Project managers", salary: "1000$"}
+    ]
   };
 
   handleChangeFirstName = (event) => {
@@ -16,7 +22,7 @@ class MyComponent extends React.Component {
 
   handleChangeLastName = (event) => {
     this.setState({
-      lastName: event.target.value,
+      age: event.target.value,
     });
   };
 
@@ -25,8 +31,8 @@ class MyComponent extends React.Component {
     alert(
       "First name: " +
         this.state.firstName +
-        " \nLast name: " +
-        this.state.lastName
+        " \nAge: " +
+        this.state.age
     );
   };
 
@@ -47,11 +53,11 @@ class MyComponent extends React.Component {
             }}
           />
           <br />
-          <label htmlFor="lname">Last name:</label>
+          <label htmlFor="lname">Age:</label>
           <br />
           <input
             type="text"
-            value={this.state.lastName}
+            value={this.state.age}
             onChange={(event) => {
               this.handleChangeLastName(event);
             }}
@@ -66,6 +72,13 @@ class MyComponent extends React.Component {
             }}
           />
         </form>
+
+    <ChildComponent 
+    name={this.state.firstName} 
+    age={this.state.age}
+    arrJobProps={this.state.arrJob}
+    />
+
       </>
     );
   }
