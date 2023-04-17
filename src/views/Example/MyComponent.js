@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import ChildComponent from "./ChildComponent";
+// import ChildComponent from "./ChildComponentClass";
+import ChildComponent from "./ChildComponentFunction";
 
 /**
  * <> </> Fragement kiểu mới
