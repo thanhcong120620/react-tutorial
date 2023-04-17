@@ -8,11 +8,15 @@ const ChildComponentFunction = (props) => {
     <>
       <div className="job-list">
         {arrJobProps.map((item, index) => {
-          return (
-            <div key={item.id}>
-              {item.jobTitle} - {item.salary}
-            </div>
-          );
+          if (item.salary >= 500) {
+            return (
+              <div key={item.id}>
+                {item.jobTitle} - {item.salary} $
+              </div>
+            );
+          } else {
+            return <h1>No salary greater 500</h1>;
+          }
         })}
       </div>
     </>

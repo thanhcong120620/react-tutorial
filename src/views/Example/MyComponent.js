@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-// import ChildComponent from "./ChildComponentClass";
-import ChildComponent from "./ChildComponentFunction";
+import ChildComponent from "./ChildComponentClass";
+// import ChildComponent from "./ChildComponentFunction";
 
 /**
  * <> </> Fragement kiểu mới
@@ -11,9 +11,9 @@ class MyComponent extends React.Component {
     firstName: "",
     age: "",
     arrJob: [
-        {id: "1", jobTitle: "Developers", salary: "500$"},
-        {id: "2", jobTitle: "Testers", salary: "400$"},
-        {id: "3", jobTitle: "Project managers", salary: "1000$"}
+        {id: "1", jobTitle: "Developers", salary: "500"},
+        {id: "2", jobTitle: "Testers", salary: "400"},
+        {id: "3", jobTitle: "Project managers", salary: "1000"}
     ]
   };
 

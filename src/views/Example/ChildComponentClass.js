@@ -5,27 +5,27 @@ import React, { Fragment } from "react";
  */
 
 class ChildComponentClass extends React.Component {
-  
-
   render() {
-    console.log(">> call props: ", this.props);
-    // let name = this.props.name;
-    // let age = this.props.age;
-    let{ name, age, arrJobProps } = this.props;
+    let { arrJobProps } = this.props;
 
     return (
       <>
-        <div>Child component: {name} - {age}</div>
+        <div>
+          <button>Show</button>
+        </div>
+
         <div className="job-list">
-            {
-                arrJobProps.map((item, index) => {
-                    return (
-                        <div key={item.id}>
-                        {item.jobTitle} - {item.salary}
-                        </div>
-                    )
-                })
-            }
+          {arrJobProps.map((item, index) => {
+            return (
+              <div key={item.id}>
+                {item.jobTitle} - {item.salary}
+              </div>
+            );
+          })}
+        </div>
+
+        <div>
+          <button>Hide</button>
         </div>
       </>
     );
