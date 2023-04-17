@@ -9,20 +9,28 @@ import React, {Fragment} from "react";
 class MyComponent extends React.Component {
 
     state = {
-        name: 'Success',
+        name: '',
         job: 'Developer',
     };
 
     handleOnChangeName = (event) => {
+
+        //this.state.name = event.target.name; // bad code
+
         this.setState({
-            name: event.target.value
+            name: event.target.value,
+            job: "student"
         });
     }
 
+    handleClickButton = () => {
+        alert("Hello "+this.state.name);
+    }
 
 
     render (){
 
+        console.log(">> call state: ", this.state);
         // let name = "Thành Công";
 
         return (
@@ -33,8 +41,12 @@ class MyComponent extends React.Component {
                     Hello first component, my name is {this.state.name}
                 </div>
 
-                <div>
+                <div className="second">
                     Hello second component, my job is {this.state['job']}
+                </div>
+
+                <div className="third"> 
+                    <button onClick={() => {this.handleClickButton()}}>Click me</button>
                 </div>
             </>
         )
