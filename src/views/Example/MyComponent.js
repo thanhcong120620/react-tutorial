@@ -1,56 +1,74 @@
-import React, {Fragment} from "react";
-
-
+import React, { Fragment } from "react";
 
 /**
  * <> </> Fragement kiểu mới
  */
 
 class MyComponent extends React.Component {
+  state = {
+    firstName: "",
+    lastName: "",
+  };
 
-    state = {
-        name: '',
-        job: 'Developer',
-    };
+  handleChangeFirstName = (event) => {
+    this.setState({ firstName: event.target.value });
+  };
 
-    handleOnChangeName = (event) => {
+  handleChangeLastName = (event) => {
+    this.setState({
+      lastName: event.target.value,
+    });
+  };
 
-        //this.state.name = event.target.name; // bad code
+  handleSubmit = (event) => {
+    event.preventDefault();
+    alert(
+      "First name: " +
+        this.state.firstName +
+        " \nLast name: " +
+        this.state.lastName
+    );
+  };
 
-        this.setState({
-            name: event.target.value,
-            job: "student"
-        });
-    }
+  render() {
+    console.log(">> call state: ", this.state);
+    // let name = "Thành Công";
 
-    handleClickButton = () => {
-        alert("Hello "+this.state.name);
-    }
-
-
-    render (){
-
-        console.log(">> call state: ", this.state);
-        // let name = "Thành Công";
-
-        return (
-            <> 
-                {/* {console.log("(1)The name is", name)} */}
-                <div className="first">
-                    <input value={this.state.name} type="text" onChange={(event) => this.handleOnChangeName(event)} />
-                    Hello first component, my name is {this.state.name}
-                </div>
-
-                <div className="second">
-                    Hello second component, my job is {this.state['job']}
-                </div>
-
-                <div className="third"> 
-                    <button onClick={() => {this.handleClickButton()}}>Click me</button>
-                </div>
-            </>
-        )
-    }
+    return (
+      <>
+        <form>
+          <label htmlFor="fname">First name:</label>
+          <br />
+          <input
+            type="text"
+            value={this.state.firstName}
+            onChange={(event) => {
+              this.handleChangeFirstName(event);
+            }}
+          />
+          <br />
+          <label htmlFor="lname">Last name:</label>
+          <br />
+          <input
+            type="text"
+            value={this.state.lastName}
+            onChange={(event) => {
+              this.handleChangeLastName(event);
+            }}
+          />
+          <br />
+          <br />
+          <input
+            type="submit"
+            value="Save"
+            onClick={(event) => {
+              this.handleSubmit(event);
+            }}
+          />
+        </form>
+      </>
+    );
+  }
 }
 
 export default MyComponent;
