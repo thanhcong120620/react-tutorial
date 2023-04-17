@@ -2,16 +2,11 @@ import React, { Fragment } from "react";
 
 class AddComponent extends React.Component {
   state = {
-    TitleJob: "",
+    title: "",
     salary: "",
-    arrJob: [
-      { id: "1", jobTitle: "Developers", salary: "500" },
-      { id: "2", jobTitle: "Testers", salary: "400" },
-      { id: "3", jobTitle: "Project managers", salary: "1000" },
-    ],
   };
   handleChangeTitleJob = (event) => {
-    this.setState({ TitleJob: event.target.value });
+    this.setState({ title: event.target.value });
   };
 
   handleChangeSalary = (event) => {
@@ -22,10 +17,24 @@ class AddComponent extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    alert(
-      "TitleJob: " + this.state.TitleJob + " \nSalary: " + this.state.salary
-    );
-    console.log(">> call state: ", this.state);
+    // alert("title: " + this.state.title + " \nSalary: " + this.state.salary);
+    // console.log(">>> Check data input: ", this.state);
+
+    if (!this.state.title || !this.state.salary) {
+      alert("Missing required input");
+      return;
+    }
+
+    this.props.addNewJob({
+      id: Math.random(),
+      jobTitle: this.state.title,
+      salary: this.state.salary,
+    });
+
+    this.setState({
+      title: "",
+      salary: "",
+    });
   };
 
   render() {
@@ -33,11 +42,11 @@ class AddComponent extends React.Component {
       <>
         <div>
           <form>
-            <label htmlFor="fname">Job title:</label>
+            <label htmlFor="fname">Job's title:</label>
             <br />
             <input
               type="text"
-              value={this.state.TitleJob}
+              value={this.state.title}
               onChange={(event) => {
                 this.handleChangeTitleJob(event);
               }}
