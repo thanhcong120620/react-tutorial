@@ -26,7 +26,7 @@ class AddComponent extends React.Component {
     }
 
     this.props.addNewJob({
-      id: Math.random(),
+      id: Math.floor(Math.random() * 10000),
       jobTitle: this.state.title,
       salary: this.state.salary,
     });
