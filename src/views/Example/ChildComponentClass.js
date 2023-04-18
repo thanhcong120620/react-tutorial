@@ -1,12 +1,9 @@
 import React, { Fragment } from "react";
+import "./Demo.scss";
 /**
  * <> </> Fragement kiểu mới
  */
 
-const deleteStyle = {
-  cursor: "pointer",
-  color: "red",
-};
 class ChildComponentClass extends React.Component {
   state = {
     showJob: false,
@@ -35,6 +32,7 @@ class ChildComponentClass extends React.Component {
         {showJob === false ? ( //true condition (condition?true:false)
           <div>
             <button
+              className="btn-show"
               onClick={() => {
                 this.handleShowHide();
               }}
@@ -51,7 +49,7 @@ class ChildComponentClass extends React.Component {
                   <div key={item.id}>
                     {item.jobTitle} - {item.salary}{" "}
                     <span
-                      style={deleteStyle}
+                      className="delete-symbol"
                       onClick={() => {
                         this.handleDeleteClick(item);
                       }}
