@@ -20,6 +20,16 @@ class ListTodo extends React.Component {
     toast.success("Add successfully !");
   };
 
+  handleDeleteTodo = (todo) => {
+    // console.log(todo);
+    let currentTodo = this.state.listTodo;
+    currentTodo = currentTodo.filter((item) => todo.id !== item.id);
+
+    this.setState({
+      listTodo: currentTodo,
+    });
+  };
+
   render() {
     let { listTodo } = this.state;
     // = let listTodo = this.state.listTodo
@@ -39,7 +49,14 @@ class ListTodo extends React.Component {
                       {index + 1} - {item.title}
                     </span>
                     <button className="edit">Edit</button>
-                    <button className="edit">Delete</button>
+                    <button
+                      className="delete"
+                      onClick={() => {
+                        this.handleDeleteTodo(item);
+                      }}
+                    >
+                      Delete
+                    </button>
                   </div>
                 );
               })}
