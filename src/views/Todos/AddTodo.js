@@ -14,12 +14,12 @@ class AddTodo extends React.Component {
   };
 
   handleAddTodo = (event) => {
+    event.preventDefault();
     if (!this.state.title) {
       toast.error("Missing title!");
       return;
     }
 
-    event.preventDefault();
     let todo = {
       id: Math.floor(Math.random() * 10000),
       title: this.state.title,
