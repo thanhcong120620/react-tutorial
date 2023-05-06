@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 
+// import logo from "../logo.svg";
+
 import { toast } from "react-toastify";
 import AddTodo from "./AddTodo.js";
 import "./ListTodo.scss";
@@ -74,6 +76,8 @@ class ListTodo extends React.Component {
 
     return (
       <>
+        <p>Todo App made by Success !</p>
+
         <div className="list-todo-container">
           <AddTodo AddNewTodo={this.AddNewTodo} />
 

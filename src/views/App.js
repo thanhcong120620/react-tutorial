@@ -1,37 +1,43 @@
 import logo from "./logo.svg";
 import "./App.scss";
 
-// import MyComponent from './Example/MyComponent.js'
+import MyComponent from "./Example/MyComponent.js";
 import ListTodo from "./Todos/ListTodo.js";
+import Nav from "./Nav/Nav.js";
+import Home from "./Nav/Home.js";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Todo App made by Success !</p>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/todo" element={<ListTodo />} />
+            <Route exact path="/about" element={<MyComponent />} />
+          </Routes>
+        </header>
 
-        <ListTodo />
-
-        {/* <MyComponent/>
-         */}
-      </header>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 
