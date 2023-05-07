@@ -6,8 +6,8 @@ class Home extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       console.log("Check Timeout");
-      this.props.navigate("/about");
-    }, 3000);
+      this.props.navigate("/todo");
+    }, 1000);
   }
 
   render() {
