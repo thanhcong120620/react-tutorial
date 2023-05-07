@@ -20,8 +20,7 @@ class Home extends React.Component {
           src={home}
           className="Home-logo"
           alt="logo"
-          width="150px"
-          height="150px"
+          style={{ width: "150px", height: "150px" }}
         />
         <h2>Hello from Home</h2>
       </>
