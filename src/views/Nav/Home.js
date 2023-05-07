@@ -1,6 +1,7 @@
 import React from "react";
-// import { withRouter } from "react-router";
+
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { connect } from "react-redux";
 
 import home from "../../assets/images/home.png";
 
@@ -13,7 +14,7 @@ class Home extends React.Component {
   }
 
   render() {
-    // console.log(">>>Check props: ", this.props);
+    console.log(">>>Check props: ", this.props);
     return (
       <>
         <img
@@ -45,4 +46,10 @@ function withRouter(Component) {
   return ComponentWithRouterProp;
 }
 
-export default withRouter(Home);
+const mapStateToProps = (state) => {
+  return {
+    reduxData: state.users,
+  };
+};
+
+export default connect(mapStateToProps)(withRouter(Home));
