@@ -6,6 +6,7 @@ import ListTodo from "./Todos/ListTodo.js";
 import Nav from "./Nav/Nav.js";
 import Home from "./Nav/Home.js";
 import ListUser from "./Users/ListUser.js";
+import DetailUser from "./Users/DetailUser.js";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +25,7 @@ function App() {
             <Route exact path="/todo" element={<ListTodo />} />
             <Route exact path="/about" element={<MyComponent />} />
             <Route exact path="/user-list" element={<ListUser />} />
+            <Route exact path="/user-list/:id" element={<DetailUser />} />
           </Routes>
         </header>
 

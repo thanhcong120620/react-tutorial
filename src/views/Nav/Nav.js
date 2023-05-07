@@ -14,16 +14,37 @@ class Nav extends React.Component {
           </Link>
           <Link to="/todo">Todos</Link>
           <Link to="/about">About</Link> */}
-          <NavLink to="/" activeClassName="active" exact={true}>
+          <NavLink
+            to="/"
+            className={(navData) =>
+              navData.isActive ? "active-style" : "none"
+            }
+            exact={"true"}
+          >
             Home
           </NavLink>
-          <NavLink to="/todo" activeClassName="active">
+          <NavLink
+            to="/todo"
+            className={(navData) =>
+              navData.isActive ? "active-style" : "none"
+            }
+          >
             Todos
           </NavLink>
-          <NavLink to="/about" activeClassName="active">
+          <NavLink
+            to="/about"
+            className={(navData) =>
+              navData.isActive ? "active-style" : "none"
+            }
+          >
             About
           </NavLink>
-          <NavLink to="/user-list" activeClassName="active">
+          <NavLink
+            to="/user-list"
+            className={(navData) =>
+              navData.isActive ? "active-style" : "none"
+            }
+          >
             Users
           </NavLink>
         </div>
