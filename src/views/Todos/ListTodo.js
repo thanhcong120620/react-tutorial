@@ -73,7 +73,7 @@ class ListTodo extends React.Component {
   render() {
     let { listTodo, editTodo } = this.state;
     let isEmptyObject = Object.keys(editTodo).length === 0;
-    console.log(">>>Check empty Object: ", isEmptyObject);
+    // console.log(">>>Check empty Object: ", isEmptyObject);
 
     return (
       <>

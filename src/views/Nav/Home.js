@@ -5,13 +5,13 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 class Home extends React.Component {
   componentDidMount() {
     setTimeout(() => {
-      console.log("Check Timeout");
+      // console.log("Check Timeout");
       this.props.navigate("/todo");
     }, 1000);
   }
 
   render() {
-    console.log(">>>Check props: ", this.props);
+    // console.log(">>>Check props: ", this.props);
     return (
       <>
         <h2>Hello from Home</h2>
